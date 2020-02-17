@@ -1,7 +1,7 @@
 # name: Pressing Ctrl-D exits session
 # type: bool
 # Ctrl-D exits cmd.exe when it is pressed on an empty line.
-ctrld_exits = 1
+ctrld_exits = 0
 
 # name: Toggle if pressing Esc clears line
 # type: bool
