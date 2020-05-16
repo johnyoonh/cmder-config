@@ -1,3 +1,4 @@
+ -- expands the tilde symbol into the home path with tab. Does not allow for proper evaulation prior to expansion.
 local function tilde_match (text, f, l)
     if text == '~' then
         clink.add_match(clink.get_env('home'))

@@ -4,6 +4,8 @@
 ;= rem In batch mode, jump to the end of the file
 ;= goto:eof
 ;= Add aliases below here
+
+;= Defaults
 e.=explorer .
 gl=git log --oneline --all --graph --decorate  $*
 ls=ls --show-control-chars -F --color $*
@@ -11,7 +13,26 @@ pwd=cd
 clear=cls
 unalias=alias /d $1
 vi=vim $*
+cmderr=cd %cmder_root%
+
+
+cd=cd $* && ls
+-=z -
+j=z $* && ls
+history=cat -n "%CMDER_ROOT%\config\.history"
+home=cd /d %USERPROFILE%
+~=cd /d %USERPROFILE%
+cdc=cd "%CMDER_ROOT%\config\"
+workon=conda activate $*
+
+ll=ls -la --color $*
+ls=ls --color $*
+repos=cd ^%userprofile^%\repos\$1 $*
+vimdiff=vim -d $*
+
 cmderr=cd /d "%CMDER_ROOT%"
+
+;= attempt to mimic scm_breeze
 ga=git add -A $*
 gam=git amend --reset-author $*
 gap=git add --patch $*
@@ -56,7 +77,7 @@ gdm=git ls-files --modified $*
 gdu=git ls-files --other --exclude-standard $*
 gdx=git ls-files --deleted $*
 gf=git fetch $*
-gfc=git clone $*
+gcl=git clone $*
 gfch=git fetch $*
 gfm=git pull $*
 gfr=git pull --rebase $*
@@ -129,25 +150,3 @@ gssp=git stash save --patch --no-keep-index $*
 gt=git tag -n $*
 gunc=git uncommit $*
 guns=git unstage $*
-ll=ls -la --color $*
-ls=ls --color $*
-repos=cd ^%userprofile^%\repos\$1 $*
-vimdiff=vim -d $*
-np=notepad $*
-g=git $*  
-vi=vim $*  
-cmderr=cd %cmder_root%  
-home=cd /d %USERPROFILE%
-~=cd /d %USERPROFILE%
-va=vim "%CMDER_ROOT%\config\user_aliases.cmd"
-sublime_text="%CMDER_ROOT%\vendor\sublime_text_3\sublime_text"
-atom="%CMDER_ROOT%\vendor\atom\Atom\atom $*"
-apm="%CMDER_ROOT%\vendor\atom\Atom\resources\app\apm\bin\apm $*"
-history3=cat -n %CMDER_ROOT%\config\.history  
-history4=cat -n "%CMDER_ROOT%\config\.history"  
-history5=cat -n "C:\Users\user\cmder dev\config\.history"  
-history6=cat -n C:\Users\user\cmder dev\config\.history  
-history2=cat -n %CMDER_ROOT%\config\.history  
-history=cat -n "%CMDER_ROOT%\config\.history"  
-myupstream=git remote -v $b grep upstream $b head -n 1 $b cut -f 2 $b cut -d ' ' -f 1 $g %temp%\repo.tmp $t unix2dos %temp%\repo.tmp 2$lnull $t sleep 1 $t set /p x=$l%temp%\repo.tmp $t start /b %x%  
-myrepo=git remote -v $b grep origin $b head -n 1 $b cut -f 2 $b cut -d ' ' -f 1 $g %temp%\repo.tmp $t unix2dos %temp%\repo.tmp 2$lnull $t sleep 1 $t set /p x=$l%temp%\repo.tmp $t start /b %x%  

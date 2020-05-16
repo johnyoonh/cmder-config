@@ -24,7 +24,7 @@
  -- "folder" for folder name only like System32
  -- "smart" to switch in git repo to folder name instead of full path 
  -- default is full
-plc_prompt_type = "smart"
+plc_prompt_type = "full"
 --- REQUIRED. powerline_config_prompt_useHomeSymbol is whether to show ~ instead of the full path to the user's home folder
  -- Use true or false
  -- default is true
